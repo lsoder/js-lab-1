@@ -1,0 +1,32 @@
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 30rem;
+    background-color: lightcoral;
+    padding: 2rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+button {
+    background-color: lime;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.3rem;
+}
+
+button:hover {
+    background-color: darkgreen;
+    color: white;
+}

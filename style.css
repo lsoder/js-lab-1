@@ -9,21 +9,29 @@ body {
     height: 100vh;
 }
 
+input {
+    width: 100%;
+    height: 30px;
+    text-align:center;
+    font-size: 1rem;
+    margin-top:15px;
+    
+  }
+
 .container {
-    width: 30rem;
+    width: 35rem;
     background-color: lightcoral;
     padding: 2rem;
-}
-
-p {
-    font-size: 1.3rem;
+    height: 12rem;
+    font-size: 1.5rem;
 }
 
 button {
     background-color: lime;
-    width: 10rem;
+    width: 12rem;
     height: 3rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin: 1rem;
 }
 
 button:hover {

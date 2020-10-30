@@ -48,7 +48,7 @@ function advanceTo(s) {
 
 let currentScene = {
   start: {
-    text: "Vågar du spela detta spel? Skriv in ditt namn och tryck på enter...",
+    text: "Vågar du spela detta spel?"+"<br><br>"+"Skriv in ditt namn och tryck på enter...",
     buttons: []
   },
   basement: {
@@ -60,7 +60,7 @@ let currentScene = {
     buttons: [["Ja", "advanceTo(currentScene.keybox)"], ["Nej, gå vidare", "advanceTo(currentScene.monster)"]]
   },
   monster: {
-    text: "GAME OVER! Ett monster åt upp dig! Vill du spela igen?",
+    text: "GAME OVER!"+"<br><br>"+"Ett monster åt upp dig! Vill du spela igen?",
     buttons: [["Ja!", "advanceTo(currentScene.start)"]]
   },
   keybox: {
@@ -80,11 +80,11 @@ let currentScene = {
     buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover2)"]]
   },
   gameover: {
-    text: "GAME OVER! Monstret åt upp dig, YourName.",
+    text: "GAME OVER!"+"<br><br>"+"Monstret åt upp dig, YourName.",
     buttons: []
   },
   gameover2: {
-    text: "GAME OVER! Utan svärd var du chanslös mot monstret som åt upp dig, YourName.",
+    text: "GAME OVER!"+"<br><br>"+"Utan svärd var du chanslös mot monstret som åt upp dig, YourName.",
     buttons: []
   },
   finish: {
@@ -95,5 +95,5 @@ let currentScene = {
 };
  
 
-/** Starts the program. */
+/** Starts the game. */
 advanceTo(currentScene.start);

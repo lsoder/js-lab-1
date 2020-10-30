@@ -19,6 +19,7 @@ input.onkeypress = function (event) {
 
 };
 
+
 /** Text changes and adds a name, yourName. */
 function changeText(words) {
   console.log({words})

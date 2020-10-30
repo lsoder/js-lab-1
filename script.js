@@ -60,7 +60,7 @@ let currentScene = {
     buttons: [["Ja", "advanceTo(currentScene.keybox)"], ["Nej, gå vidare", "advanceTo(currentScene.monster)"]]
   },
   monster: {
-    text: "Ett monster åt upp dig! GAME OVER! Vill du spela igen?",
+    text: "GAME OVER! Ett monster åt upp dig! Vill du spela igen?",
     buttons: [["Ja!", "advanceTo(currentScene.start)"]]
   },
   keybox: {
@@ -80,11 +80,11 @@ let currentScene = {
     buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover2)"]]
   },
   gameover: {
-    text: "Monstret åt upp dig, YourName. GAME OVER!!",
+    text: "GAME OVER! Monstret åt upp dig, YourName.",
     buttons: []
   },
   gameover2: {
-    text: "Utan svärd är du chanslös mot monstret som åt upp dig, YourName. GAME OVER!!",
+    text: "GAME OVER! Utan svärd var du chanslös mot monstret som åt upp dig, YourName.",
     buttons: []
   },
   finish: {

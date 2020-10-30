@@ -3,10 +3,10 @@ body {
     margin: 0;
     background-color: #223344;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    /*background-image: url(./monster.png);
+    background-position: center;
+    background-repeat: no-repeat;*/
 }
 
 input {
@@ -21,9 +21,15 @@ input {
 .container {
     width: 35rem;
     background-color: lightcoral;
-    padding: 2rem;
     height: 12rem;
     font-size: 1.5rem;
+}
+
+
+input {
+    width: 20rem;
+    height: 2rem;
+ 
 }
 
 button {
@@ -37,4 +43,25 @@ button {
 button:hover {
     background-color: darkgreen;
     color: white;
+}
+
+#buttons {
+    margin: 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.centered {
+    align-items: center;
+    justify-content: center;
+}
+
+.padding {
+    padding: 2rem;
 }

@@ -1,25 +1,26 @@
-
 let text = document.getElementById("text");
-let buttonBox = document.getElementById('buttonBox');
-let input = document.getElementById('input');
+let buttons = document.getElementById("buttons");
+let input = document.getElementById("input");
+let images = document.getElementById("images");
 
-//skriv ditt namn
 let yourName;
-//efter man har skrivit in sitt namn och tryckt på enter...
-//namnet läggs till variabeln och tar bort input och man går vidare till första scenarot...
-
+/**
+ * 
+Write in your name and press enter, the name is added to the variable and 
+deletes input when you move on to the first scene.
+ */
 input.onkeypress = function (event) {
 
   if (event.key == "Enter" || event.keyCode == 13) {
     yourName = input.value;
     console.log(yourName);
-    input.parentNode.removeChild(input) // tar bort inputfältet
+    input.parentNode.removeChild(input) // removes input field
     advanceTo(currentScene.basement)
   }
+
 };
 
-
-//här ändras texten och lägger in nickname i stället...
+/** Text changes and adds a name, yourName. */
 function changeText(words) {
   console.log({words})
   console.log({yourName})
@@ -30,19 +31,26 @@ function changeText(words) {
   text.innerHTML = words;
 };
 
-//den här lägger till rätt antal knappar
+/** Takes image link and show it on page */
+function changeImage(img) {
+  images.style.backgroundImage = "url(" + img + ")";
+};
+
+/** Adds the right number of buttons. */
 function changeButtons(buttonList) {
-  buttonBox.innerHTML = "";
+  buttons.innerHTML = "";
   for (let i = 0; i < buttonList.length; i++) {
-    buttonBox.innerHTML += "<button onClick=" + buttonList[i][1] + ">" + buttonList[i][0] + "</button>";
+    buttons.innerHTML += "<button onClick=" + buttonList[i][1] + ">" + buttonList[i][0] + "</button>";
   }
 };
 
-//denna för spelet vidare...
+/** Moves game further. */
 function advanceTo(s) {
+  changeImage(s.image)
   changeText(s.text)
   changeButtons(s.buttons)
 };
+
 
 
 let currentScene = {
@@ -59,6 +67,7 @@ let currentScene = {
     buttons: [["Ja", "advanceTo(currentScene.keybox)"], ["Nej, gå vidare", "advanceTo(currentScene.monster)"]]
   },
   monster: {
+    image: "./monster.png",
     text: "Ett monster åt upp dig! GAME OVER! Vill du spela igen?",
     buttons: [["Ja!", "advanceTo(currentScene.start)"]]
   },
@@ -72,14 +81,20 @@ let currentScene = {
   },
   box: {
     text: "Så..nu kan du öppna lådan! I lådan finns även ett svärd, vill du plocka upp svärdet?",
-    buttons: [["Ja!", "advanceTo(currentScene.sword)"], ["Nej, tack detta var tråkigt!", "advanceTo(currentScene.start)"]]
+    buttons: [["Ja!", "advanceTo(currentScene.sword)"], ["Nej", "advanceTo(currentScene.gameover)"]]
   },
   sword: {
     text: "Ett fruktansvärt monster attakerar dig, vill du använda svärdet?",
-    buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover)"]]
+    buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover2)"]]
   },
   gameover: {
+    image: "./monster.png",
     text: "Monstret åt upp dig, YourName. GAME OVER!!",
+    buttons: []
+  },
+  gameover2: {
+    image: "./monster.png",
+    text: "Utan svärd är du chanslös mot monstret som åt upp dig, YourName. GAME OVER!!",
     buttons: []
   },
   finish: {
@@ -88,6 +103,7 @@ let currentScene = {
   },
 
 };
+ 
 
-//denna startar funktionen
+/** Starts the program. */
 advanceTo(currentScene.start);

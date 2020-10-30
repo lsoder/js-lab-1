@@ -6,15 +6,15 @@ let yourName;
 /**
  * 
 Write in your name and press enter, the name is added to the variable and 
-deletes input when you move on to the first scene.
+deletes input when you move on to the first scenes.
  */
 input.onkeypress = function (event) {
 
-  if (event.key == "Enter" || event.keyCode == 13) {
+  if (event.key == "Enter" || event.keyCode == 13 ) {
     yourName = input.value;
     console.log(yourName);
-    input.parentNode.removeChild(input) // removes input field
-    advanceTo(currentScene.basement)
+    input.style.display = "none" // hides input field
+    advanceTo(scenes.basement)
   }
 
 };
@@ -39,61 +39,58 @@ function changeButtons(buttonList) {
 };
 
 /** Moves game further. */
-function advanceTo(s) {
-  changeText(s.text)
-  changeButtons(s.buttons)
+function advanceTo(scene) {
+  changeText(scene.text)
+  changeButtons(scene.buttons)
 };
 
-
-
-let currentScene = {
+let scenes = {
   start: {
     text: "Vågar du spela detta spel?"+"<br><br>"+"Skriv in ditt namn och tryck på enter...",
     buttons: []
   },
   basement: {
     text: "YourName, du befinner dig i källaren och det är ganska mörkt. Vill du tända lampan?",
-    buttons: [["Ja", "advanceTo(currentScene.lamp)"], ["Nej", "advanceTo(currentScene.monster)"]]
+    buttons: [["Ja", "advanceTo(scenes.lamp)"], ["Nej", "advanceTo(scenes.monster)"]]
   },
   lamp: {
     text: "Smart drag så att du kan se vad du gör... Du ser en låda vill du öppna lådan?",
-    buttons: [["Ja", "advanceTo(currentScene.keybox)"], ["Nej, gå vidare", "advanceTo(currentScene.monster)"]]
+    buttons: [["Ja", "advanceTo(scenes.keybox)"], ["Nej, gå vidare", "advanceTo(scenes.monster)"]]
   },
   monster: {
-    text: "GAME OVER!"+"<br><br>"+"Ett monster åt upp dig! Vill du spela igen?",
-    buttons: [["Ja!", "advanceTo(currentScene.start)"]]
+    text: "GAME OVER!"+"<br><br>"+"Ett monster åt upp dig! Ladda om sidan om du vill spela igen.",
+    buttons: []
   },
   keybox: {
     text: "Du behöver en nyckel för att öppna lådan...",
-    buttons: [["Leta efter nyckel", "advanceTo(currentScene.key)"], ["Gå vidare", "advanceTo(currentScene.monster)"]]
+    buttons: [["Leta efter nyckel", "advanceTo(scenes.key)"], ["Gå vidare", "advanceTo(scenes.monster)"]]
   },
   key: {
     text: "Av en händelse ser du en nyckel ligga på golvet!! Vill du plocka upp den?",
-    buttons: [["Ja, självklart!", "advanceTo(currentScene.box)"], ["Nej", "advanceTo(currentScene.monster)"]]
+    buttons: [["Ja, självklart!", "advanceTo(scenes.box)"], ["Nej", "advanceTo(scenes.monster)"]]
   },
   box: {
     text: "Så..nu kan du öppna lådan! I lådan finns även ett svärd, vill du plocka upp svärdet?",
-    buttons: [["Ja!", "advanceTo(currentScene.sword)"], ["Nej", "advanceTo(currentScene.gameover)"]]
+    buttons: [["Ja!", "advanceTo(scenes.sword)"], ["Nej", "advanceTo(scenes.gameover)"]]
   },
   sword: {
     text: "Ett fruktansvärt monster attakerar dig, vill du använda svärdet?",
-    buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover2)"]]
+    buttons: [["Ja!", "advanceTo(scenes.finish)"], ["Nej", "advanceTo(scenes.gameover2)"]]
   },
   gameover: {
-    text: "GAME OVER!"+"<br><br>"+"Monstret åt upp dig, YourName.",
+    text: "GAME OVER!"+"<br><br>"+"Monstret åt upp dig, YourName. Ladda om sidan om du vill spela igen.",
     buttons: []
   },
   gameover2: {
-    text: "GAME OVER!"+"<br><br>"+"Utan svärd var du chanslös mot monstret som åt upp dig, YourName.",
+    text: "GAME OVER!"+"<br><br>"+"Utan svärd var du chanslös mot monstret som åt upp dig, YourName. Ladda om sidan om du vill spela igen.",
     buttons: []
   },
   finish: {
-    text: "Bra jobbat YourName! Du har besegrat monstret och vunnit! Vill du spela igen?",
-    buttons: [["Ja!", "advanceTo(currentScene.start)"]]
+    text: "Bra jobbat YourName!"+"<br><br>"+"Du har besegrat monstret och vunnit! Ladda om sidan om du vill spela igen.",
+    buttons: []
   },
 
 };
  
-
 /** Starts the game. */
-advanceTo(currentScene.start);
+advanceTo(scenes.start);

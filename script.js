@@ -1,7 +1,6 @@
 let text = document.getElementById("text");
 let buttons = document.getElementById("buttons");
 let input = document.getElementById("input");
-let images = document.getElementById("images");
 
 let yourName;
 /**
@@ -31,11 +30,6 @@ function changeText(words) {
   text.innerHTML = words;
 };
 
-/** Takes image link and show it on page */
-function changeImage(img) {
-  images.style.backgroundImage = "url(" + img + ")";
-};
-
 /** Adds the right number of buttons. */
 function changeButtons(buttonList) {
   buttons.innerHTML = "";
@@ -46,7 +40,6 @@ function changeButtons(buttonList) {
 
 /** Moves game further. */
 function advanceTo(s) {
-  changeImage(s.image)
   changeText(s.text)
   changeButtons(s.buttons)
 };
@@ -55,7 +48,7 @@ function advanceTo(s) {
 
 let currentScene = {
   start: {
-    text: "Vill du spela ett spel? Skriv in ditt namn och tryck på enter...",
+    text: "Vågar du spela detta spel? Skriv in ditt namn och tryck på enter...",
     buttons: []
   },
   basement: {
@@ -67,7 +60,6 @@ let currentScene = {
     buttons: [["Ja", "advanceTo(currentScene.keybox)"], ["Nej, gå vidare", "advanceTo(currentScene.monster)"]]
   },
   monster: {
-    image: "./monster.png",
     text: "Ett monster åt upp dig! GAME OVER! Vill du spela igen?",
     buttons: [["Ja!", "advanceTo(currentScene.start)"]]
   },
@@ -88,12 +80,10 @@ let currentScene = {
     buttons: [["Ja!", "advanceTo(currentScene.finish)"], ["Nej", "advanceTo(currentScene.gameover2)"]]
   },
   gameover: {
-    image: "./monster.png",
     text: "Monstret åt upp dig, YourName. GAME OVER!!",
     buttons: []
   },
   gameover2: {
-    image: "./monster.png",
     text: "Utan svärd är du chanslös mot monstret som åt upp dig, YourName. GAME OVER!!",
     buttons: []
   },

@@ -4,9 +4,9 @@ body {
     background-color: #223344;
     color: white;
     height: 100vh;
-    /*background-image: url(./monster.png);
+    background-image: url(./monster.png);
     background-position: center;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
 }
 
 input {
@@ -20,9 +20,10 @@ input {
 
 .container {
     width: 35rem;
-    background-color: lightcoral;
-    height: 12rem;
+    background-color: palevioletred;
+    height: 15rem;
     font-size: 1.5rem;
+    text-align: center;
 }
 
 
@@ -38,11 +39,16 @@ button {
     height: 3rem;
     font-size: 1.2rem;
     margin: 1rem;
+    cursor: pointer;
+    border: grey;
+    border-style: outset;
 }
 
 button:hover {
-    background-color: darkgreen;
+    border: grey;
+    border-style: inset;
     color: white;
+    background-color: green;
 }
 
 #buttons {

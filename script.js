@@ -46,7 +46,7 @@ function advanceTo(scene) {
 
 let scenes = {
   start: {
-    text: "Vågar du spela detta spel?"+"<br><br>"+"Skriv in ditt namn och tryck på enter...",
+    text: "Vågar du spela detta spel?"+"<br><br>"+"Skriv in ditt namn och tryck på enter/retur...",
     buttons: []
   },
   basement: {
